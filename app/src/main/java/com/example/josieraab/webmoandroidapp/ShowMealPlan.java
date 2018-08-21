@@ -7,9 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class MealPlanActivity extends AppCompatActivity {
+public class ShowMealPlan extends AppCompatActivity {
 
     private TextView mTextMessage;
+
+    public
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {

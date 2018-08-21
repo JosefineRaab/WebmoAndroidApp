@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MealPlanActivity"
+            android:name=".ShowMealPlan"
             android:label="@string/title_activity_meal_plan"></activity>
     </application>
 
