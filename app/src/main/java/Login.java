@@ -32,7 +32,7 @@ public class Login extends Activity {
 }
 
     private void gültigkeit ( String userName, String userPassword){
-     if ((userName =="Thomas") && (userPassword=="Slotos")) {
+     if ((username =="Thomas") && (password=="Slotos")) {
          Intent intent = new Intent(Intent.makeMainActivity(MealPlan))
                  startActivity(intent);
      }
