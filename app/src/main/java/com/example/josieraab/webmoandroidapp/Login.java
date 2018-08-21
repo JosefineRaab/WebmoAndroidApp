@@ -1,11 +1,10 @@
+package com.example.josieraab.webmoandroidapp;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-
-import com.example.josieraab.webmoandroidapp.R;
-import com.example.josieraab.webmoandroidapp.ShowMealPlan;
 
 public class Login extends Activity {
 

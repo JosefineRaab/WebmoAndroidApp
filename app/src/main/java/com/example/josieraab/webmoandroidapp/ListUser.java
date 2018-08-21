@@ -6,6 +6,6 @@ public class ListUser {
     User user2 = new User("Thomas1","Slotos1");
     User user3 = new User("Thomas2","Slotos2");
 
-    Admin admin = new Admin("Thomas12","password")
+    Admin admin = new Admin("Thomas12","password");
 
 }
