@@ -20,7 +20,6 @@
         android:textColor="@android:color/darker_gray"
         android:textSize="16dp"
         tools:background="@android:color/holo_blue_bright" />
-    "/>
 
     <EditText
         android:id="@+id/passwordtxt"
@@ -57,7 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="@string/LoginButtonTxt"
+                android:text="@string/loginButtonTxt"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />

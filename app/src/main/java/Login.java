@@ -13,7 +13,7 @@ public class Login extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.loginlayout);
+        setContentView(R.layout.login);
     }
 
     final EditText InputUsername =(EditText)findViewById(R.id.usernametxt);
