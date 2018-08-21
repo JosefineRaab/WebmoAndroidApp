@@ -25,7 +25,11 @@
         </activity>
         <activity
             android:name=".ShowMealPlan"
-            android:label="@string/title_activity_meal_plan"></activity>
+            android:label="@string/title_activity_meal_plan" />
+        <activity
+            android:name=".ShowMeal"
+            android:label="@string/title_activity_show_meal"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

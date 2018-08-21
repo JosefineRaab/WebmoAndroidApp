@@ -2,12 +2,13 @@
     <string name="app_name">Webmo Android App</string>
     <string name="LoginButtonTxt">Login</string>
     <string name="ErrorLogin">falsches Passwort</string>
-=======
+    =======
     <string name="title_activity_meal_plan">Mealplan</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="logged_in_headline">Du bist eingelogged als</string>
+    <string name="title_activity_show_meal">ShowMeal</string>
 
 
 </resources>
