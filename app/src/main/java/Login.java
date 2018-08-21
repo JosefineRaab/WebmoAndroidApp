@@ -23,7 +23,7 @@ public class Login extends Activity {
     final Button login= findViewById(R.id.loginButton);
 
 
-
+// TODO: Diese Funktion mit der ListUser verbinden
     private void validate ( EditText InputUsername, EditText InputPassword){
      if ((InputUsername.toString() =="Thomas") && (InputPassword.toString()=="Slotos")) {
          Intent intent = new Intent(Login.this,ShowMealPlan.class);
