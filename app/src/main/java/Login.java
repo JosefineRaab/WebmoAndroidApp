@@ -1,18 +1,13 @@
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.josieraab.webmoandroidapp.MealPlan;
 import com.example.josieraab.webmoandroidapp.R;
+import com.example.josieraab.webmoandroidapp.ShowMealPlan;
 
 public class Login extends Activity {
-
-    private EditText username;
-    private EditText password;
-    private Button login;
 
 
     @Override
@@ -21,20 +16,18 @@ public class Login extends Activity {
         setContentView(R.layout.loginlayout);
     }
 
-    username =(EditText)findViewById(R.id.usernametxt);
+    final EditText InputUsername =(EditText)findViewById(R.id.usernametxt);
 
-    password=(EditText)findViewById(R.id.passwordtxt);
+    final EditText InputPassword=(EditText)findViewById(R.id.passwordtxt);
 
-    login=(EditText)
+    final Button login= findViewById(R.id.loginButton);
 
-    findViewById(R.id.loginbutton);
 
-}
 
-    private void gültigkeit ( String userName, String userPassword){
-     if ((username =="Thomas") && (password=="Slotos")) {
-         Intent intent = new Intent(Intent.makeMainActivity(MealPlan))
+    private void validate ( EditText InputUsername, EditText InputPassword){
+     if ((InputUsername.toString() =="Thomas") && (InputPassword.toString()=="Slotos")) {
+         Intent intent = new Intent(Login.this,ShowMealPlan.class);
                  startActivity(intent);
      }
-
-}
+     else System.out.println("@String/ErrorLogin");
+}}
