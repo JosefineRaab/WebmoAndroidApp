@@ -5,7 +5,9 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ShowMealPlan extends AppCompatActivity {
 
@@ -38,8 +40,20 @@ public class ShowMealPlan extends AppCompatActivity {
         setContentView(R.layout.show_mealplan);
 
         mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+
+
     }
 
+
+
+//TODO: write logic to populate textview to say whether logged in as admin or user
+
+
+    public void ShowMeal(View view) {
+
+        Toast toast=Toast.makeText(getApplicationContext(),"Auf Essen geklickt",Toast.LENGTH_LONG);
+        toast.setMargin(50,50);
+        toast.show();
+    }
 }
