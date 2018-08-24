@@ -55,4 +55,6 @@ public class ShowMealPlan extends AppCompatActivity {
         intent.putExtra("Geklickt_auf", "123");
         startActivity(intent);
     }
+
+
 }
