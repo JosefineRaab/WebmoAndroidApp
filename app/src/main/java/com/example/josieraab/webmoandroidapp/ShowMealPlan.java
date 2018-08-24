@@ -1,5 +1,6 @@
 package com.example.josieraab.webmoandroidapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -7,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 public class ShowMealPlan extends AppCompatActivity {
 
@@ -41,8 +42,6 @@ public class ShowMealPlan extends AppCompatActivity {
 
         mTextMessage = (TextView) findViewById(R.id.message);
 
-
-
     }
 
 
@@ -52,8 +51,8 @@ public class ShowMealPlan extends AppCompatActivity {
 
     public void ShowMeal(View view) {
 
-        Toast toast=Toast.makeText(getApplicationContext(),"Auf Essen geklickt",Toast.LENGTH_LONG);
-        toast.setMargin(50,50);
-        toast.show();
+        Intent intent = new Intent(ShowMealPlan.this,ShowMeal.class);
+        intent.putExtra("Geklickt_auf", "123");
+        startActivity(intent);
     }
 }

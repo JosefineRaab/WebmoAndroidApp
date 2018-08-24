@@ -6,6 +6,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.View;
+import android.widget.TextView;
 
 public class ShowMeal extends AppCompatActivity {
 
@@ -24,6 +26,14 @@ public class ShowMeal extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+
+        String id = getIntent().getStringExtra("Geklickt_auf");
+
+        TextView newtext = (TextView) findViewById(R.id.testid);
+       newtext.setText(id);
+
+
 
 
     }

@@ -56,6 +56,7 @@ public class Meal {
     create()meal.setPrice(22,50f);
     create()meal.setMealType("@String/kindofmeal2art");
 
+<<<<<<< HEAD
     Meal meal = new Meal(3);
     create()meal.setName("@String/kindofmeal3");
     create()meal.setPrice(3,01f);
@@ -96,3 +97,9 @@ public class Meal {
 
 }
 
+=======
+          public void setMealType(MealType  mealType) {
+             this.mealType = mealType;
+          }
+    }
+>>>>>>> Intent von ShowMealPlan auf Mealplan erstellt, testweise erfolgreich parameter aus dem intent in neuer activity ausgelesen
