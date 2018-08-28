@@ -19,19 +19,6 @@
     <string name="ArtAnzeige">Art</string>
     <string name="title_activity_login_first">Login</string>
 
-    //LoginActivityFirst
-    <string name="usernamelogin">Username</string>
-    <string name="PasswordLogin">Password </string>
-    <string name="action_login">Login </string>
-    <string name="action_loin_to_short">Login short</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short : min 6 </string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
-
 
     //Essensvarainten
 
@@ -47,14 +34,6 @@
     //Mealid4
     <string name="kind_of_meal_4">BIO Rindsteak </string>
     <string name="kind_of_meal_4_art">BIO Rindsteak </string>
-    <string name="title_activity_login_activityfirst">Login</string>
-
-    <!-- Strings related to login -->
-    <string name="prompt_email">Username</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in </string>
-    <string name="action_sign_in_short">Sign in</string>
-
 
 
     <!--Alles zu Show_MealPlan'-->
@@ -67,6 +46,21 @@
     <string name="Wednesday">Mittwoch</string>
     <string name="Thursday">Donnerstag</string>
     <string name="Friday">Freitag</string>
+    <string name="title_activity_login_activitytest">Login</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_username">UserName</string>
+    <string name="prompt_password">Password </string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
 
 
 
