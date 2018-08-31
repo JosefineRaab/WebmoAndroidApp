@@ -48,6 +48,13 @@
     <string name="meal1_name">Spaghetti</string>
     <string name="meal2_name">Pizza</string>
     <string name="meal3_name">Currywurst</string>
+    <string name="meal4_name">Chicken Teriyaki</string>
+    <string name="meal5_name">Pommes Rot Weiß</string>
+    <string name="meal6_name">Rindersteak mit Sauce</string>
+    <string name="meal7_name">Wildlachs mit Kartoffeln</string>
+    <string name="meal8_name">Salat</string>
+    <string name="meal9_name">Pizza mit Thunfisch</string>
+    <string name="meal10_name">Pizza mit Salami</string>
 
 
     <!-- Show_MealPlan'-->

@@ -17,7 +17,35 @@ public class ListMeal {
         meal.setName("@string/Name_Meal3");
         meal.setPrice(2.0f);
 
-        // TODO: create 7 more meals
+        Meal meal4 = new Meal(4);
+        meal.setName("@string/Name_Meal4");
+        meal.setPrice(2.0f);
+
+        Meal meal5 = new Meal(5);
+        meal.setName("@string/Name_Meal5");
+        meal.setPrice(6.0f);
+
+        Meal meal6 = new Meal(6);
+        meal.setName("@string/Name_Meal6");
+        meal.setPrice(2.8f);
+
+        Meal meal7 = new Meal(7);
+        meal.setName("@string/Name_Meal7");
+        meal.setPrice(2.7f);
+
+        Meal meal8 = new Meal(8);
+        meal.setName("@string/Name_Meal8");
+        meal.setPrice(2.6f);
+
+        Meal meal9 = new Meal(9);
+        meal.setName("@string/Name_Meal9");
+        meal.setPrice(4.1f);
+
+        Meal meal10 = new Meal(10);
+        meal.setName("@string/Name_Meal10");
+        meal.setPrice(6.2f);
+
+
 
     }
 
