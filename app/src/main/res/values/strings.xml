@@ -65,7 +65,16 @@
     <string name="Wednesday">Mittwoch</string>
     <string name="Thursday">Donnerstag</string>
     <string name="Friday">Freitag</string>
+    <string name="title_activity_main">Speiseplan</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Menü</string>
+    <string name="nav_header_subtitle">Hier finden Sie alles rund um den Speiseplan.</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
 
 
+    <!-- Navigation'-->
+    <string name="Edit">Bearbeiten</string>
 
 </resources>
