@@ -1,7 +1,7 @@
 package com.example.josieraab.webmoandroidapp;
 
 
-public class ListMeal {
+/* public class ListMeal {
 
     public void ListMeals(){
 
@@ -50,3 +50,5 @@ public class ListMeal {
     }
 
 }
+
+*/

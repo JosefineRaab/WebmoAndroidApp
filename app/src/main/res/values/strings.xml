@@ -11,11 +11,11 @@
 
     <string name="logged_in_headline">Du bist eingelogged als</string>
     <string name="title_activity_show_meal">ShowMeal</string>
-    <string name="title_activity_showmeal">Showmeal</string>
+    <string name="title_activity_showMeal">Showmeal</string>
 
     <!--ShowMeal-->
-    <string name="Meal">Meal</string>
-    <string name="Price">Price</string>
+    <string name="Meal">Essen</string>
+    <string name="Price">Preis</string>
     <string name="Type">Art</string>
 
     <!--MealType-->

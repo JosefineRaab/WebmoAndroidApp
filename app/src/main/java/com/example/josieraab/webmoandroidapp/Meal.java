@@ -2,20 +2,19 @@ package com.example.josieraab.webmoandroidapp;
 
 public class Meal {
 
-    private int mealId;
+    private String mealId;
     private String name;
-    private float price;
+    private String price;
     private MealType mealType;
 
-    public Meal(int mealId) {
-        this.mealId = mealId;
-    }
+    public Meal() { }
 
-    public int getMealId() {
+
+    public String getMealId() {
         return mealId;
     }
 
-    public void setMealId(int mealId) {
+    public void setMealId(String mealId) {
         this.mealId = mealId;
     }
 
@@ -27,11 +26,11 @@ public class Meal {
         this.name = name;
     }
 
-    public float getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 

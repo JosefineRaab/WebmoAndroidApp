@@ -30,7 +30,7 @@ public class MealPlan {
        Meal foundMeal = null;
 
        for (Meal meal : mealsPerWeek) {
-           if (meal.getMealId()== mealId){
+           if (meal.getMealId().equals(mealId)){
                foundMeal = meal;
                break;
            }

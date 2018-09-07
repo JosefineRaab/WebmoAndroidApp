@@ -73,7 +73,7 @@
                 android:layout_marginLeft="16dp"
                 android:clickable="true"
                 android:onClick="ShowMeal"
-                android:text="123"
+                android:text="@string/meal1_name"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -97,7 +97,7 @@
                 android:layout_marginLeft="16dp"
                 android:clickable="true"
                 android:onClick="ShowMeal"
-                android:text="123"
+                android:text="@string/meal2_name"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </TableRow>
@@ -120,7 +120,7 @@
                 android:layout_marginLeft="16dp"
                 android:clickable="true"
                 android:onClick="ShowMeal"
-                android:text="123"
+                android:text="@string/meal3_name"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </TableRow>
