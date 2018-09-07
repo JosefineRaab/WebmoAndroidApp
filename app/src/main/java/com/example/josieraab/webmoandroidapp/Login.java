@@ -1,12 +1,16 @@
 package com.example.josieraab.webmoandroidapp;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toolbar;
 
 public class Login extends Activity {
+
 
 
 
@@ -16,11 +20,18 @@ public class Login extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+
+      //  setSupportActionBar(toolbar);
+
         final EditText InputUsername =(EditText)findViewById(R.id.usernametxt);
 
         final EditText InputPassword=(EditText)findViewById(R.id.passwordtxt);
 
-        final Button login= findViewById(R.id.loginButton);}
+        final Button login= findViewById(R.id.loginButton);
+
+
+        }
 
 
 // TODO: Diese Funktion mit der ListUser verbinden
@@ -31,6 +42,7 @@ public class Login extends Activity {
             }
             else System.out.println("@String/ErrorLogin");
     }
+
 
 
 

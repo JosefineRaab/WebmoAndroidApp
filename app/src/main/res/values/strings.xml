@@ -76,5 +76,7 @@
 
     <!-- Navigation'-->
     <string name="Edit">Bearbeiten</string>
+    <string name="title_activity_show__detail__meal">Show_Detail_Meal</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 
 </resources>

@@ -1,5 +1,6 @@
 package com.example.josieraab.webmoandroidapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -58,7 +59,9 @@ public class ShowMeal extends AppCompatActivity {
                 tb.addDataClickListener(new TableDataClickListener() {
                     @Override
                     public void onDataClicked(int rowIndex, Object clickedData) {
-                        Toast.makeText(ShowMeal.this, ((String[])clickedData)[1], Toast.LENGTH_SHORT).show();
+                     //   Toast.makeText(ShowMeal.this, ((String[])clickedData)[1], Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(ShowMeal.this,Show_Detail_Meal.class);
+                        startActivity(intent);
                     }
                 });
 
@@ -102,6 +105,7 @@ public class ShowMeal extends AppCompatActivity {
                     Meals[i][3]=s.getMealType().toString();
 
                 }
+
 
 
             }
