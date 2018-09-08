@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/meal3">
+    android:background="@drawable/mensaleuphana">
 
 
     <EditText
@@ -16,9 +16,10 @@
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
-        android:text="Username"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="16dp"
+        android:singleLine="false"
+        android:textColor="@color/colorAccent"
+        android:textSize="21sp"
+        android:textStyle="bold"
         tools:background="@android:color/holo_blue_bright" />
 
     <EditText
@@ -34,8 +35,9 @@
         android:hint="Password"
 
         android:inputType="textPassword"
-        android:textColor="@android:color/white"
-        android:textSize="16dp" />
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <android.support.v7.widget.CardView
         android:layout_width="300dp"
@@ -56,9 +58,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:background="#b52154"
                 android:text="@string/LoginButtonTxt"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
+                android:textColor="#1f1f1f"
+                android:textSize="14sp"
                 android:textStyle="bold" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>

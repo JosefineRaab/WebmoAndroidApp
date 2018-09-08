@@ -1,5 +1,7 @@
 package com.example.josieraab.webmoandroidapp;
 
+import android.view.View;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -37,4 +39,8 @@ public class MealPlan {
        }
         return foundMeal;
     }
+
+
 }
+
+
