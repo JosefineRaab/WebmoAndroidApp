@@ -20,6 +20,9 @@ public class ShowMeal extends AppCompatActivity {
     String[] MealDetailHeaders = {"ID", "Essen", "Preis", "Art"};
     String name;
     String price;
+    String type;
+
+
     public final int requestCode = 123;
     TableView<Meal> mealTableView;
     MealTableDataAdapter mealTableDataAdapter;
@@ -36,12 +39,12 @@ public class ShowMeal extends AppCompatActivity {
 
         mealTableView = findViewById(R.id.tableView);
         mealTableView.setColumnCount(4);
-        mealTableView.setHeaderBackgroundColor(Color.parseColor("#2ecc71"));
+       // mealTableView.setHeaderBackgroundColor(Color.parseColor("#2ecc71"));
 
         // Dummy data
-        addMeal("1", "Spaghetti", "3.5", MealType.vegetarian);
-        addMeal("2", "Pizza", "3.5", MealType.withMeat);
-        addMeal("3", "Bulgursalat", "2.0", MealType.vegan);
+        addMeal(1, "Spaghetti", 3.5f, getResources().getStringArray(R.array.MealType)[0]);
+        addMeal(2, "Pizza", 3.5f, getResources().getStringArray(R.array.MealType)[1]);
+        addMeal(3, "Bulgursalat", 2.0f, getResources().getStringArray(R.array.MealType)[2]);
 
         // Create table view adapter
         mealTableDataAdapter = new MealTableDataAdapter(this, mealList);
@@ -78,18 +81,20 @@ public class ShowMeal extends AppCompatActivity {
         if (this.requestCode == requestCode) {
             if (resultCode == RESULT_OK) {
 
-                name = data.getExtras().getString("name");
-                price = data.getExtras().getString("price");
+                String name = data.getExtras().getString("name");
+                float price = data.getExtras().getFloat("price");
+                String type = data.getExtras().getString("type");
 
-                // TODO fix
-                addMeal("", name, price, MealType.vegetarian);
+                int lastId = mealList.get(mealList.size()-1).getMealId();
+
+                addMeal(lastId+1, name, price, type);
 
                 mealTableDataAdapter.notifyDataSetChanged();
             }
         }
     }
 
-    private void addMeal(String id, String name, String price, MealType mealType)
+    private void addMeal(int id, String name, float price, String mealType)
     {
         Meal meal = new Meal();
         meal.setMealId(id);

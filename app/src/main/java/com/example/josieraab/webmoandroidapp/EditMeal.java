@@ -15,6 +15,7 @@ public class EditMeal extends AppCompatActivity implements AdapterView.OnItemSel
 
     private EditText Meal_Name_Input;
     private EditText Meal_Price_Input;
+    private String Meal_Type_Input;
     private Button SaveButton;
 
 
@@ -51,7 +52,8 @@ public class EditMeal extends AppCompatActivity implements AdapterView.OnItemSel
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String sSelected = parent.getItemAtPosition(position).toString();
-        Toast.makeText(this, sSelected, Toast.LENGTH_SHORT).show();
+        Meal_Type_Input= sSelected;
+       // Toast.makeText(this, sSelected, Toast.LENGTH_SHORT).show();
 
     }
 
@@ -61,10 +63,12 @@ public class EditMeal extends AppCompatActivity implements AdapterView.OnItemSel
     }
 
     public void save(){
+
+
        Intent intent = new Intent();
         intent.putExtra("name", Meal_Name_Input.getText().toString());
-        intent.putExtra("price", Meal_Price_Input.getText().toString());
-
+        intent.putExtra("price", Float.valueOf(Meal_Price_Input.getText().toString()));
+        intent.putExtra("type", Meal_Type_Input);
 
         setResult(RESULT_OK, intent);
         finish();

@@ -43,14 +43,15 @@ public class MealTableDataAdapter extends TableDataAdapter<Meal> {
 
         switch (columnIndex) {
             case 0: // Id
-                textView.setText(meal.getMealId());
+                textView.setText(Integer.toString(meal.getMealId()));
                 break;
             case 1: // Name
                 textView.setText(meal.getName());
 
                 break;
             case 2: // Price
-                textView.setText(meal.getPrice());
+                textView.setText(String.format("%.2f", meal.getPrice()));
+
                 break;
             case 3: // Type
                 textView.setText(meal.getMealType().toString());
