@@ -1,15 +1,21 @@
 package com.example.josieraab.webmoandroidapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 public class EditMeal extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    private EditText Meal_Name_Input;
+    private EditText Meal_Price_Input;
+    private Button SaveButton;
 
 
     @Override
@@ -17,10 +23,13 @@ public class EditMeal extends AppCompatActivity implements AdapterView.OnItemSel
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_meal);
 
+        Meal_Name_Input = (EditText) findViewById(R.id.Meal_Name_content);
+        Meal_Price_Input = (EditText) findViewById(R.id.Meal_Price_content);
+        SaveButton = findViewById(R.id.Save_Button);
 
         Spinner spinner = (Spinner) findViewById(R.id.Meal_type_spinner);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.MealType, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.MealType, android.R.layout.simple_spinner_item);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -28,17 +37,37 @@ public class EditMeal extends AppCompatActivity implements AdapterView.OnItemSel
 
         spinner.setOnItemSelectedListener(this);
 
+        SaveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                save();
+            }
+        });
+
+
     }
 
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String sSelected=parent.getItemAtPosition(position).toString();
-        Toast.makeText(this,sSelected,Toast.LENGTH_SHORT).show();
+        String sSelected = parent.getItemAtPosition(position).toString();
+        Toast.makeText(this, sSelected, Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    public void save(){
+       Intent intent = new Intent();
+        intent.putExtra("name", Meal_Name_Input.getText().toString());
+        intent.putExtra("price", Meal_Price_Input.getText().toString());
+
+
+        setResult(RESULT_OK, intent);
+        finish();
 
     }
 }

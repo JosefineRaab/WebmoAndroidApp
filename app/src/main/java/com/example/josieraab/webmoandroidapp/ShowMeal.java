@@ -25,6 +25,10 @@ import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 public class ShowMeal extends AppCompatActivity {
     String[] MealDetailHeaders = {"ID", "Essen", "Preis", "Art"};
     String[][] Meals;
+    String name;
+    String price;
+    public final int requestCode = 123;
+     TableView<String[]> tb ;
 
 
     @Override
@@ -35,7 +39,7 @@ public class ShowMeal extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        final TableView<String[]> tb = (TableView<String[]>) findViewById(R.id.tableView);
+        tb = (TableView<String[]>) findViewById(R.id.tableView);
         tb.setColumnCount(4);
         tb.setHeaderBackgroundColor(Color.parseColor("#2ecc71"));
 
@@ -51,9 +55,11 @@ public class ShowMeal extends AppCompatActivity {
             public void onDataClicked(int rowIndex, Object clickedData) {
                 //   Toast.makeText(ShowMeal.this, ((String[])clickedData)[1], Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(ShowMeal.this, EditMeal.class);
-                startActivity(intent);
+                startActivityForResult(intent, requestCode );
             }
         });
+
+
 
         TableColumnWeightModel columnModel = new TableColumnWeightModel(4);
 
@@ -64,7 +70,12 @@ public class ShowMeal extends AppCompatActivity {
         tb.setColumnModel(columnModel);
     }
 
+
+
     private void populateData() {
+
+
+
         Meal meal = new Meal();
         ArrayList<Meal> mealList = new ArrayList<>();
 
@@ -88,9 +99,15 @@ public class ShowMeal extends AppCompatActivity {
         meal.setMealType(MealType.vegan);
         mealList.add(meal);
 
+        meal = new Meal();
+        meal.setMealId(name);
+        meal.setName(name);
+        meal.setPrice(price);
+        meal.setMealType(MealType.vegan);
+        mealList.add(meal);
+
 
         Meals = new String[mealList.size()][4];
-        // spaceProbes= new String[][]{{}};
 
         for (int i = 0; i < mealList.size(); i++) {
 
@@ -105,7 +122,22 @@ public class ShowMeal extends AppCompatActivity {
 
 
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 
-}
+            if (this.requestCode == requestCode){
+                if (resultCode == RESULT_OK){
+
+                    name = data.getExtras().getString("name");
+                    price = data.getExtras().getString("price");
+
+                    populateData();
+                    tb.setDataAdapter(new SimpleTableDataAdapter(this, Meals));
+
+                }
+            }
+        }
+    }
+
 

@@ -17,7 +17,14 @@ public class ShowMealPlan extends AppCompatActivity {
     private TextView mTextMessage;
 
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.show_mealplan);
 
+        mTextMessage = (TextView) findViewById(R.id.message);
+
+    }
 
 //TODO: write logic to populate textview to say whether logged in as admin or user
 
