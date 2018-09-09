@@ -28,6 +28,10 @@
     <string name="usernamelogin">Username</string>
     <string name="PasswordLogin">Password </string>
     <string name="action_login">Login </string>
+    <string name="welcometxtlogin">Willkommen zur Mensa App! </string>
+    <string name="radiobtnlogin"> Admin Button noch im Aufbau </string>
+
+
 
 
 
