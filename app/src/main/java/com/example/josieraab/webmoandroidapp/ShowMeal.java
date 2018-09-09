@@ -41,10 +41,9 @@ public class ShowMeal extends AppCompatActivity {
         mealTableView.setColumnCount(4);
        // mealTableView.setHeaderBackgroundColor(Color.parseColor("#2ecc71"));
 
-        // Dummy data
-        addMeal(1, "Spaghetti", 3.5f, getResources().getStringArray(R.array.MealType)[0]);
-        addMeal(2, "Pizza", 3.5f, getResources().getStringArray(R.array.MealType)[1]);
-        addMeal(3, "Bulgursalat", 2.0f, getResources().getStringArray(R.array.MealType)[2]);
+
+        mealList = WebMoApplication.getDataStorage().readFromDisc(this);
+
 
         // Create table view adapter
         mealTableDataAdapter = new MealTableDataAdapter(this, mealList);
@@ -94,7 +93,7 @@ public class ShowMeal extends AppCompatActivity {
         }
     }
 
-    private void addMeal(int id, String name, float price, String mealType)
+    public void addMeal(int id, String name, float price, String mealType)
     {
         Meal meal = new Meal();
         meal.setMealId(id);
@@ -103,6 +102,8 @@ public class ShowMeal extends AppCompatActivity {
         meal.setMealType(mealType);
 
         mealList.add(meal);
+
+        WebMoApplication.getDataStorage().saveToDisc(this, mealList);
     }
 }
 

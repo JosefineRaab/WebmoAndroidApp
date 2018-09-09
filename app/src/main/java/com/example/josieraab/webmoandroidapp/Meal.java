@@ -1,6 +1,11 @@
 package com.example.josieraab.webmoandroidapp;
 
-public class Meal {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+public class Meal implements Serializable {
 
     private int mealId;
     private String name;
@@ -42,9 +47,25 @@ public class Meal {
         this.mealType = mealType;
     }
 
+/*
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Meal meal = (Meal) o;
+        return mealId == meal.mealId &&
+                Float.compare(meal.price, price) == 0 &&
+                Objects.equals(name, meal.name) &&
+                Objects.equals(mealType, meal.mealType);
+    }
 
+    @Override
+    public int hashCode() {
 
+        return Objects.hash(mealId, name, price, mealType);
+    }
 
+    */
 }
 
 

@@ -8,7 +8,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name=".WebMoApplication">
         <activity
             android:name=".Login"
             android:label="Login" />
@@ -29,10 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Show_Detail_Meal"
-            android:label="@string/title_activity_show__detail__meal"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".EditMeal"></activity>
     </application>
 
