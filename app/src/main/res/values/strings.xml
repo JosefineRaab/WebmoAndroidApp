@@ -23,13 +23,18 @@
     <string name="vegetarian">vegetarisch</string>
     <string name="withMeat">mit Fleisch</string>
 
+    <string-array name="MealType">
+        <item>vegan</item>
+        <item>vegetarisch</item>
+        <item>mit Fleisch</item>
+
+    </string-array>
+
     <!--LoginActivityFirst-->
     <string name="title_activity_login_first">Login</string>
     <string name="usernamelogin">Username</string>
     <string name="PasswordLogin">Password </string>
     <string name="action_login">Login </string>
-
-
 
 
     <!--ListMeal-->

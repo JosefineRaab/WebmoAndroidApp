@@ -23,16 +23,8 @@ import de.codecrafters.tableview.toolkit.SimpleTableDataAdapter;
 import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
 public class ShowMeal extends AppCompatActivity {
-    String[] MealDetailHeaders ={"ID","Essen","Preis", "Art"};
+    String[] MealDetailHeaders = {"ID", "Essen", "Preis", "Art"};
     String[][] Meals;
-
-    /*
-    TableColumnWeightModel columnModel = new TableColumnWeightModel(4);
-
-    columnModel.setColumnWeight(1, 2);
-    columnModel.setColumnWeight(2, 2);
-    tableView.setColumnModel(columnModel);
-    */
 
 
     @Override
@@ -43,74 +35,77 @@ public class ShowMeal extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
+        final TableView<String[]> tb = (TableView<String[]>) findViewById(R.id.tableView);
+        tb.setColumnCount(4);
+        tb.setHeaderBackgroundColor(Color.parseColor("#2ecc71"));
 
 
-                final TableView <String[]> tb = (TableView<String[]>) findViewById(R.id.tableView);
-                tb.setColumnCount(4);
-                tb.setHeaderBackgroundColor(Color.parseColor("#2ecc71"));
+        //POPULATE
+        populateData();
 
-
-                //POPULATE
-                populateData();
-
-                //ADAPTERS
-                tb.setHeaderAdapter(new SimpleTableHeaderAdapter(this, MealDetailHeaders));
-                tb.setDataAdapter(new SimpleTableDataAdapter(this, Meals));
-                tb.addDataClickListener(new TableDataClickListener() {
-                    @Override
-                    public void onDataClicked(int rowIndex, Object clickedData) {
-                     //   Toast.makeText(ShowMeal.this, ((String[])clickedData)[1], Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(ShowMeal.this,Show_Detail_Meal.class);
-                        startActivity(intent);
-                    }
-                });
-
+        //ADAPTERS
+        tb.setHeaderAdapter(new SimpleTableHeaderAdapter(this, MealDetailHeaders));
+        tb.setDataAdapter(new SimpleTableDataAdapter(this, Meals));
+        tb.addDataClickListener(new TableDataClickListener() {
+            @Override
+            public void onDataClicked(int rowIndex, Object clickedData) {
+                //   Toast.makeText(ShowMeal.this, ((String[])clickedData)[1], Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(ShowMeal.this, EditMeal.class);
+                startActivity(intent);
             }
-            private void populateData()
-            {
-                Meal meal =new Meal();
-                ArrayList<Meal> mealList=new ArrayList<>();
+        });
 
-                meal.setMealId("1");
-                meal.setName("Spaghetti");
-                meal.setPrice("3.5");
-                meal.setMealType(MealType.vegetarian);
-                mealList.add(meal);
+        TableColumnWeightModel columnModel = new TableColumnWeightModel(4);
 
-                meal=new Meal();
-                meal.setMealId("2");
-                meal.setName("Pizza");
-                meal.setPrice("3.5");
-                meal.setMealType(MealType.withMeat);
-                mealList.add(meal);
+        columnModel.setColumnWeight(1, 1);
+        columnModel.setColumnWeight(2, 2);
+        columnModel.setColumnWeight(2, 2);
+        columnModel.setColumnWeight(2, 2);
+        tb.setColumnModel(columnModel);
+    }
 
-                meal=new Meal();
-                meal.setMealId("3");
-                meal.setName("Bulgursalat");
-                meal.setPrice("2.0");
-                meal.setMealType(MealType.vegan);
-                mealList.add(meal);
+    private void populateData() {
+        Meal meal = new Meal();
+        ArrayList<Meal> mealList = new ArrayList<>();
 
+        meal.setMealId("1");
+        meal.setName("Spaghetti");
+        meal.setPrice("3.5");
+        meal.setMealType(MealType.vegetarian);
+        mealList.add(meal);
 
-                Meals= new String[mealList.size()][4];
-                // spaceProbes= new String[][]{{}};
+        meal = new Meal();
+        meal.setMealId("2");
+        meal.setName("Pizza");
+        meal.setPrice("3.5");
+        meal.setMealType(MealType.withMeat);
+        mealList.add(meal);
 
-                for (int i=0;i<mealList.size();i++) {
-
-                    Meal s=mealList.get(i);
-
-                    Meals[i][0]=s.getMealId();
-                    Meals[i][1]=s.getName();
-                    Meals[i][2]=s.getPrice();
-                    Meals[i][3]=s.getMealType().toString();
-
-                }
+        meal = new Meal();
+        meal.setMealId("3");
+        meal.setName("Bulgursalat");
+        meal.setPrice("2.0");
+        meal.setMealType(MealType.vegan);
+        mealList.add(meal);
 
 
+        Meals = new String[mealList.size()][4];
+        // spaceProbes= new String[][]{{}};
 
-            }
+        for (int i = 0; i < mealList.size(); i++) {
 
+            Meal s = mealList.get(i);
 
+            Meals[i][0] = s.getMealId();
+            Meals[i][1] = s.getName();
+            Meals[i][2] = s.getPrice();
+            Meals[i][3] = s.getMealType().toString();
 
         }
+
+
+    }
+
+
+}
 

@@ -18,7 +18,7 @@
         <activity
             android:name=".ShowMeal"
             android:label="@string/title_activity_show_meal"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
@@ -32,7 +32,8 @@
         <activity
             android:name=".Show_Detail_Meal"
             android:label="@string/title_activity_show__detail__meal"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".EditMeal"></activity>
     </application>
 
 </manifest>
