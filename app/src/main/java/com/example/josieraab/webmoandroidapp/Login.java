@@ -41,7 +41,7 @@ public class Login extends AppCompatActivity {
     }
 
     private void validate(String userName, String userPassword){
-        if((userName.equals("Admin")) && (userPassword.equals("1234"))){
+        if((userName.equals("User")) && (userPassword.equals("1234"))){
             Intent intent = new Intent(Login.this, ShowMealPlan.class);
             startActivity(intent);
 
