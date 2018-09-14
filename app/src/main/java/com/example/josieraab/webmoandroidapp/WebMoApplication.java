@@ -7,50 +7,74 @@ import java.util.List;
 
 public class WebMoApplication extends Application {
 
-    private static DataStorage dataStorage;
+    private static DataStorage MealDataStorage;
+    private static DataStorage WeekDataStorage;
+    private static MealManager MealManager;
+
 
     @Override
     public void onCreate() {
 
         super.onCreate();
-        final DataStorage dataStorage = getDataStorage();
+        final DataStorage MealDataStorage = getMealDataStorage();
 
 
-        List<Meal> loadedMeal = dataStorage.readFromDisc(this);
-        if (loadedMeal == null) {
-            dataStorage.saveToDisc(this, getDefaultMeals());
+        final DataStorage WeekDataStorage = getMealDataStorage();
+        MealManager = new MealManager(this);
+
+/*
+
+        List<Meal> loadedWeek = WeekDataStorage.readFromDisc(this);
+        if (loadedWeek == null) {
+            WeekDataStorage.saveToDisc(this, getDefaultWeeks());
+*/
+
+
 
 
         }
 
+
+    public static MealManager getMealManager() {
+
+        return MealManager;
     }
 
 
-    public static DataStorage getDataStorage() {
+    public static DataStorage getMealDataStorage() {
 
-        if (dataStorage == null) {
+        if (MealDataStorage == null) {
 
-            dataStorage = new DataStorage();
+            MealDataStorage = new DataStorage();
         }
-        return dataStorage;
+        return MealDataStorage;
     }
 
 
-    private List<Meal> getDefaultMeals() {
+    public static DataStorage getWeekDataStorage() {
 
-        List<Meal> mealList = new ArrayList<>();
+        if (WeekDataStorage == null) {
 
-//the default Meals loaded above
-        Meal meal = createMeal(1, "Spaghetti", 3.5f, getResources().getStringArray(R.array.MealType)[2]);
-        mealList.add(meal);
+            WeekDataStorage = new DataStorage();
+        }
+        return WeekDataStorage;
+    }
 
-        meal = createMeal(2, "Pizza", 3.5f, getResources().getStringArray(R.array.MealType)[1]);
-        mealList.add(meal);
 
-        meal = createMeal(3, "Bulgursalat", 2.0f, getResources().getStringArray(R.array.MealType)[0]);
-        mealList.add(meal);
 
-        return mealList;
+    private List<MealPlan> getDefaultWeeks() {
+
+        List<MealPlan> defaultWeeks = new ArrayList<>();
+
+
+        for (int i = 0; i < 8; i++) {
+
+            MealPlan mealPlan = new MealPlan(i);
+            defaultWeeks.add(mealPlan);
+
+        }
+
+        return defaultWeeks;
 
     }
 
@@ -63,5 +87,72 @@ public class WebMoApplication extends Application {
         meal.setMealType(mealType);
 
         return meal;
+    }
+
+    private List<Integer> createMealsPerWeek(int weekNumber) {
+        List<Integer> mealsPerWeek = new ArrayList<>();
+        switch (weekNumber) {
+            case 1: // Id
+                mealsPerWeek.add(5);
+                mealsPerWeek.add(4);
+                mealsPerWeek.add(7);
+                mealsPerWeek.add(9);
+                mealsPerWeek.add(2);
+                break;
+            case 2: //
+                mealsPerWeek.add(3);
+                mealsPerWeek.add(8);
+                mealsPerWeek.add(1);
+                mealsPerWeek.add(5);
+                mealsPerWeek.add(4);
+                break;
+            case 3: //
+                mealsPerWeek.add(3);
+                mealsPerWeek.add(6);
+                mealsPerWeek.add(9);
+                mealsPerWeek.add(4);
+                mealsPerWeek.add(1);
+                break;
+            case 4: //
+                mealsPerWeek.add(6);
+                mealsPerWeek.add(7);
+                mealsPerWeek.add(8);
+                mealsPerWeek.add(9);
+                mealsPerWeek.add(1);
+                break;
+
+            case 5: //
+                mealsPerWeek.add(1);
+                mealsPerWeek.add(2);
+                mealsPerWeek.add(3);
+                mealsPerWeek.add(4);
+                mealsPerWeek.add(5);
+                break;
+            case 6: //
+                mealsPerWeek.add(6);
+                mealsPerWeek.add(7);
+                mealsPerWeek.add(8);
+                mealsPerWeek.add(9);
+                mealsPerWeek.add(5);
+                break;
+
+            case 7: //
+                mealsPerWeek.add(5);
+                mealsPerWeek.add(4);
+                mealsPerWeek.add(1);
+                mealsPerWeek.add(9);
+                mealsPerWeek.add(3);
+                break;
+
+            case 8: //
+                mealsPerWeek.add(3);
+                mealsPerWeek.add(4);
+                mealsPerWeek.add(6);
+                mealsPerWeek.add(2);
+                mealsPerWeek.add(8);
+                break;
+        }
+
+        return mealsPerWeek;
     }
 }

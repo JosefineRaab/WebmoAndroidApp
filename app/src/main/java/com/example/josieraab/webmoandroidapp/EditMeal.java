@@ -90,6 +90,7 @@ public class EditMeal extends AppCompatActivity implements AdapterView.OnItemSel
         intent.putExtra("name", Meal_Name_Input.getText().toString());
         intent.putExtra("price", Float.valueOf(Meal_Price_Input.getText().toString()));
         intent.putExtra("type", Meal_Type_Input);
+        intent.putExtra("status", "added");
 
         setResult(RESULT_OK, intent);
         finish();
