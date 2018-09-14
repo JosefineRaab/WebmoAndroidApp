@@ -94,7 +94,6 @@ public class ShowMealPlan extends AppCompatActivity {
         populateWeek(0);
 
 
-
     }
 
 
@@ -105,19 +104,30 @@ public class ShowMealPlan extends AppCompatActivity {
         MealPlan week = WebMoApplication.getWeekManager().getMealPlan(weekNumber);
 
         Meal MonMeal = week.getListOfMeals().get(0);
-        Monday.setText(MonMeal.getName());
+        if (MonMeal == null) {Monday.setText("deleted");}
+        else{
+        Monday.setText(MonMeal.getName());}
 
         Meal TueMeal = week.getListOfMeals().get(1);
-        Tuesday.setText(TueMeal.getName());
+        if (TueMeal == null ){Tuesday.setText("deleted");}
+        else{
+        Tuesday.setText(TueMeal.getName());}
 
         Meal WedMeal = week.getListOfMeals().get(2);
-        Wednesday.setText(WedMeal.getName());
+        if (WedMeal == null ){Wednesday.setText("deleted");}
+        else{
+        Wednesday.setText(WedMeal.getName());}
 
         Meal ThuMeal = week.getListOfMeals().get(3);
-        Thursday.setText(ThuMeal.getName());
+        if (ThuMeal == null ){Thursday.setText("deleted");}
+        else{
+        Thursday.setText(ThuMeal.getName());}
 
         Meal FriMeal = week.getListOfMeals().get(4);
-        Friday.setText(FriMeal.getName());
+        if (FriMeal == null ){Friday.setText("deleted");}
+        else{
+        Friday.setText(FriMeal.getName());}
+
         ShowCurrentWeek.setText(String.valueOf(currentWeek));
 
     }
