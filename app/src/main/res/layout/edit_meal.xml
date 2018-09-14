@@ -5,16 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EditMeal">
+
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="top"
-        android:layout_marginTop="100dp">
-
-
-
-
-
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp">
 
 
         <TableRow>
@@ -45,6 +42,7 @@
         </TableRow>
 
         <TableRow>
+
             <TextView
                 android:id="@+id/Meal_Price_Headline"
                 android:layout_width="wrap_content"
@@ -66,10 +64,10 @@
                 android:textSize="18dp" />
 
 
-
         </TableRow>
 
         <TableRow>
+
             <TextView
                 android:id="@+id/Meal_Type_Headline"
                 android:layout_width="wrap_content"
@@ -88,26 +86,40 @@
         </TableRow>
 
         <Button
-        android:id="@+id/Save_Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Save"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+            android:id="@+id/Save_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:text="@string/Save"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/Delete_Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:lineSpacingExtra="50sp"
             android:text="@string/Delete"
             android:textSize="18sp"
             android:textStyle="bold" />
 
 
-
     </TableLayout>
 
-
+    <Button
+        android:id="@+id/space"
+        android:layout_width="383dp"
+        android:layout_height="21dp"
+        android:text="Button"
+        android:textColor="@android:color/background_light"
+        android:textColorHighlight="@color/cardview_light_background"
+        android:textColorHint="@android:color/background_light"
+        android:textColorLink="@color/cardview_light_background"
+        android:textCursorDrawable="@android:color/background_light"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="152dp"
+        tools:targetApi="@android:color/background_light" />
 
 
 </android.support.constraint.ConstraintLayout>

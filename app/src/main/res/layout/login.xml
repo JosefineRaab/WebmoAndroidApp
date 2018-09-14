@@ -10,10 +10,10 @@
     <Button
         android:id="@+id/loginButton"
         android:layout_width="204dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_height="37dp"
+        android:layout_below="@+id/passwordtxt"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="154dp"
+        android:layout_marginTop="11dp"
         android:background="@android:color/background_light"
         android:text="@string/LoginButtonTxt"
         android:textColor="#1f1f1f"

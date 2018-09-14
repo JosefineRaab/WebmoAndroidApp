@@ -25,12 +25,14 @@
             android:id="@+id/tableView"
             android:layout_width="match_parent"
             android:layout_height="500dp"
-            table:tableView_columnCount="3" />
+            table:tableView_columnCount="3"
+            table:tableView_headerColor="@color/colorAccent" />
 
         <Button
             android:id="@+id/add_meal_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
             android:text="@string/add_meal" />
 
     </LinearLayout>
