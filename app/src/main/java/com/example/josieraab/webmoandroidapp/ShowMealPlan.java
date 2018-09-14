@@ -15,6 +15,11 @@ import android.widget.TextView;
 public class ShowMealPlan extends AppCompatActivity {
 
     private TextView mTextMessage;
+    private TextView Monday;
+    private TextView Tuesday;
+    private TextView Wednesday;
+    private TextView Thursday;
+    private TextView Friday;
 
 
     @Override
@@ -24,15 +29,21 @@ public class ShowMealPlan extends AppCompatActivity {
 
         mTextMessage = (TextView) findViewById(R.id.message);
 
+        Monday = findViewById(R.id.MealPlan_Monday_Meal);
+        Tuesday = findViewById(R.id.MealPlan_Tuesday_Meal);
+        Wednesday = findViewById(R.id.MealPlan_Wednesday_Meal);
+        Thursday = findViewById(R.id.MealPlan_Thursday_Meal);
+        Friday = findViewById(R.id.MealPlan_Friday_Meal);
+
+
     }
 
-//TODO: write logic to populate textview to say whether logged in as admin or user
 
 
     public void ShowMeal(View view) {
 
         Intent intent = new Intent(ShowMealPlan.this,ShowMeal.class);
-        intent.putExtra("Geklickt_auf", "123");
+        intent.putExtra("Geklickt_auf", "");
         startActivity(intent);
     }
 

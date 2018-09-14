@@ -3,16 +3,22 @@
     package="com.example.josieraab.webmoandroidapp">
 
     <application
+        android:name=".WebMoApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name=".WebMoApplication">
+        android:theme="@style/AppTheme">
         <activity
             android:name=".Login"
-            android:label="Login" />
+            android:label="Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ShowMealPlan"
             android:label="@string/title_activity_meal_plan" />
@@ -24,11 +30,7 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name=".EditMeal"></activity>
