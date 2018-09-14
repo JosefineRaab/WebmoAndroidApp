@@ -2,115 +2,179 @@ package com.example.josieraab.webmoandroidapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+
+
 import android.view.View;
-import android.widget.TextView;
-
-
-import android.graphics.Color;
-import android.widget.Toast;
+import android.widget.Button;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 
 import de.codecrafters.tableview.TableView;
 import de.codecrafters.tableview.listeners.TableDataClickListener;
-import de.codecrafters.tableview.model.TableColumnDpWidthModel;
 import de.codecrafters.tableview.model.TableColumnWeightModel;
-import de.codecrafters.tableview.toolkit.SimpleTableDataAdapter;
 import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
 public class ShowMeal extends AppCompatActivity {
-    String[] MealDetailHeaders ={"ID","Essen","Preis", "Art"};
-    String[][] Meals;
+    String[] MealDetailHeaders = {"ID", "Essen", "Preis", "Art"};
+    String name;
+    String price;
+    String type;
 
-    /*
-    TableColumnWeightModel columnModel = new TableColumnWeightModel(4);
 
-    columnModel.setColumnWeight(1, 2);
-    columnModel.setColumnWeight(2, 2);
-    tableView.setColumnModel(columnModel);
-    */
+    public final int requestCodeAdd = 123;
+    public final int requestCodeEdit = 456;
+    TableView<Meal> mealTableView;
+    MealTableDataAdapter mealTableDataAdapter;
 
+    List<Meal> mealList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_meal);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
 
+        mealTableView = findViewById(R.id.tableView);
+        mealTableView.setColumnCount(4);
+        // mealTableView.setHeaderBackgroundColor(Color.parseColor("#2ecc71"));
 
 
-                final TableView <String[]> tb = (TableView<String[]>) findViewById(R.id.tableView);
-                tb.setColumnCount(4);
-                tb.setHeaderBackgroundColor(Color.parseColor("#2ecc71"));
+        mealList = WebMoApplication.getMealManager().getAllMeals();
 
 
-                //POPULATE
-                populateData();
+        // Create table view adapter
+        mealTableDataAdapter = new MealTableDataAdapter(this, mealList);
 
-                //ADAPTERS
-                tb.setHeaderAdapter(new SimpleTableHeaderAdapter(this, MealDetailHeaders));
-                tb.setDataAdapter(new SimpleTableDataAdapter(this, Meals));
-                tb.addDataClickListener(new TableDataClickListener() {
-                    @Override
-                    public void onDataClicked(int rowIndex, Object clickedData) {
-                     //   Toast.makeText(ShowMeal.this, ((String[])clickedData)[1], Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(ShowMeal.this,Show_Detail_Meal.class);
-                        startActivity(intent);
-                    }
-                });
+        //ADAPTERS
+        mealTableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this, MealDetailHeaders));
+        mealTableView.setDataAdapter(mealTableDataAdapter);
+        mealTableView.addDataClickListener(new TableDataClickListener() {
+            @Override
+            public void onDataClicked(int rowIndex, Object clickedData) {
+
+                Meal mealClicked = (Meal) clickedData;
+
+                Intent intent = new Intent(ShowMeal.this, EditMeal.class);
+                intent.putExtra("id", (mealClicked.getMealId()));
+                intent.putExtra("name", (mealClicked.getName()));
+                intent.putExtra("price", (mealClicked.getPrice()));
+                intent.putExtra("type", (mealClicked.getMealType()));
+
+                startActivityForResult(intent, requestCodeEdit);
+            }
+        });
+
+
+        TableColumnWeightModel columnModel = new TableColumnWeightModel(4);
+
+        columnModel.setColumnWeight(0, 1);
+        columnModel.setColumnWeight(1, 3);
+        columnModel.setColumnWeight(2, 2);
+        columnModel.setColumnWeight(3, 3);
+        mealTableView.setColumnModel(columnModel);
+
+
+        Button NewMealButton = findViewById(R.id.add_meal_button);
+        NewMealButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                newMeal();
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+
+        if (requestCodeAdd == requestCode) {
+            if (resultCode == RESULT_OK) {
+
+                String name = data.getExtras().getString("name");
+                float price = data.getExtras().getFloat("price");
+                String type = data.getExtras().getString("type");
+
+                int lastId = mealList.get(mealList.size() - 1).getMealId();
+
+                addMeal(lastId + 1, name, price, type);
 
             }
-            private void populateData()
-            {
-                Meal meal =new Meal();
-                ArrayList<Meal> mealList=new ArrayList<>();
-
-                meal.setMealId("1");
-                meal.setName("Spaghetti");
-                meal.setPrice("3.5");
-                meal.setMealType(MealType.vegetarian);
-                mealList.add(meal);
-
-                meal=new Meal();
-                meal.setMealId("2");
-                meal.setName("Pizza");
-                meal.setPrice("3.5");
-                meal.setMealType(MealType.withMeat);
-                mealList.add(meal);
-
-                meal=new Meal();
-                meal.setMealId("3");
-                meal.setName("Bulgursalat");
-                meal.setPrice("2.0");
-                meal.setMealType(MealType.vegan);
-                mealList.add(meal);
-
-
-                Meals= new String[mealList.size()][4];
-                // spaceProbes= new String[][]{{}};
-
-                for (int i=0;i<mealList.size();i++) {
-
-                    Meal s=mealList.get(i);
-
-                    Meals[i][0]=s.getMealId();
-                    Meals[i][1]=s.getName();
-                    Meals[i][2]=s.getPrice();
-                    Meals[i][3]=s.getMealType().toString();
-
-                }
-
-
-
-            }
-
-
 
         }
+        if (requestCodeEdit == requestCode) {
+            if (resultCode == RESULT_OK) {
+                int id = data.getExtras().getInt("id");
+                String name = data.getExtras().getString("name");
+                float price = data.getExtras().getFloat("price");
+                String type = data.getExtras().getString("type");
 
+                if (data.getExtras().getString("status").equals("deleted")) {
+
+/*
+                    for (Iterator<Meal> iter = mealList.listIterator(); iter.hasNext(); ) {
+                        Meal foundMeal = iter.next();
+                        if (foundMeal.getMealId() == id) {
+
+                            iter.remove();
+                            break;
+                        }*/
+
+
+                    WebMoApplication.getMealManager().removeMeal(id);
+
+
+                } else {
+
+                    for (int z = 0; z < mealList.size(); z++) {
+                        Meal foundMeal = mealList.get(z);
+                        if (foundMeal.getMealId() == id) {
+
+                            foundMeal.setName(name);
+                            foundMeal.setPrice(price);
+                            foundMeal.setMealType(type);
+
+                            WebMoApplication.getMealManager().editMeal(foundMeal);
+
+                        }
+                    }
+
+
+                }
+            }
+        }
+
+        mealList = WebMoApplication.getMealManager().getAllMeals();
+
+        mealTableDataAdapter.notifyDataSetChanged();
+
+    }
+
+
+    public void addMeal(int id, String name, float price, String mealType) {
+        Meal meal = new Meal();
+        meal.setMealId(id);
+        meal.setName(name);
+        meal.setPrice(price);
+        meal.setMealType(mealType);
+
+        //   mealList.add(meal);
+
+        WebMoApplication.getMealManager().addMeal(meal);
+    }
+
+    public void newMeal() {
+
+        Intent intent = new Intent(ShowMeal.this, EditMeal.class);
+        startActivityForResult(intent, requestCodeAdd);
+
+    }
+
+
+}

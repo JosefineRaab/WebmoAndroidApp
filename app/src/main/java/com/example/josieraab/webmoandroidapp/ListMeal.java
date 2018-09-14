@@ -9,6 +9,7 @@ package com.example.josieraab.webmoandroidapp;
         meal.setName("@string/Name_Meal1");
         meal.setPrice(3.5f);
         meal.setMealType(MealType.vegan);
+        meal.add;
 
         Meal meal2 = new Meal(2);
         meal.setName("@string/Name_Meal2");

@@ -3,13 +3,14 @@ package com.example.josieraab.webmoandroidapp;
 import android.view.View;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class MealPlan {
 
 
     private int weekNumber;
-    private Set<Meal> mealsPerWeek;
+    private List<Integer> mealsPerWeek;
 
 
     public MealPlan(int weekNumber) {
@@ -20,25 +21,25 @@ public class MealPlan {
         return weekNumber;
     }
 
-    public Set<Meal> getMealsPerWeek(int weekNumber) {
+    public List<Integer> getMealsPerWeek(int weekNumber) {
         return mealsPerWeek;
     }
 
-    public void setMealsPerWeek(Set<Meal> MealsPerWeek) {
+    public void setMealsPerWeek(List<Integer> MealsPerWeek) {
         mealsPerWeek = MealsPerWeek;
     }
 
-    public Meal getMeal(int mealId){
+/*    public Meal getMeal(int mealId){
        Meal foundMeal = null;
 
        for (Meal meal : mealsPerWeek) {
-           if (meal.getMealId().equals(mealId)){
+           if (meal.getMealId() == (mealId)){
                foundMeal = meal;
                break;
            }
        }
         return foundMeal;
-    }
+    }*/
 
 
 }
