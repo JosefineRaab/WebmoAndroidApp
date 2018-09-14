@@ -17,6 +17,8 @@ public class Login extends AppCompatActivity {
     private EditText usernamelogin;
     private EditText PasswordLogin;
     private Button action_login;
+    private Button Radio;
+
 
 
     @Override
@@ -27,6 +29,7 @@ public class Login extends AppCompatActivity {
         usernamelogin = (EditText)findViewById(id.usernametxt);
         PasswordLogin = (EditText)findViewById(id.passwordtxt);
         action_login = (Button)findViewById(id.loginButton);
+        Radio = (Button) findViewById(R.id.radioButton);
 
 
         action_login.setOnClickListener(new View.OnClickListener() {
@@ -38,10 +41,16 @@ public class Login extends AppCompatActivity {
     }
 
     private void validate(String userName, String userPassword){
-        if((userName.equals("Admin")) && (userPassword.equals("1234"))){
+        if((userName.equals("User")) && (userPassword.equals("1234"))){
             Intent intent = new Intent(Login.this, ShowMealPlan.class);
             startActivity(intent);
-        } else {Context context = getApplicationContext();
+
+        } if ((userName.equals("Admin"))&& (userPassword.equals("1234567") ))
+        {
+            Intent intent = new Intent(Login.this, ShowMeal.class);
+            startActivity(intent); }
+
+            else {Context context = getApplicationContext();
             CharSequence text = "Wrong Password!";
             int duration = Toast.LENGTH_SHORT;
 
