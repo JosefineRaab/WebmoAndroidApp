@@ -7,50 +7,67 @@ import java.util.List;
 
 public class WebMoApplication extends Application {
 
-    private static DataStorage dataStorage;
+
+    private static MealManager MealManager;
+    private static MealDataStorage MealDataStorage;
+    private static WeekDataStorage WeekDataStorage;
+
 
     @Override
     public void onCreate() {
 
         super.onCreate();
-        final DataStorage dataStorage = getDataStorage();
+
+        MealDataStorage = new MealDataStorage();
+        WeekDataStorage = new WeekDataStorage();
 
 
-        List<Meal> loadedMeal = dataStorage.readFromDisc(this);
-        if (loadedMeal == null) {
-            dataStorage.saveToDisc(this, getDefaultMeals());
+        MealManager = new MealManager(this);
 
 
-        }
+/*
+
+        List<Meal> loadedWeek = weekMealDataStorage.readFromDisc(this);
+        if (loadedWeek == null) {
+            weekMealDataStorage.saveToDisc(this, getDefaultWeeks());
+*/
+
 
     }
 
 
-    public static DataStorage getDataStorage() {
+    public static MealManager getMealManager() {
 
-        if (dataStorage == null) {
-
-            dataStorage = new DataStorage();
-        }
-        return dataStorage;
+        return MealManager;
     }
 
 
-    private List<Meal> getDefaultMeals() {
+    public static MealDataStorage getMealDataStorage() {
 
-        List<Meal> mealList = new ArrayList<>();
+        return MealDataStorage;
+    }
 
-//the default Meals loaded above
-        Meal meal = createMeal(1, "Spaghetti", 3.5f, getResources().getStringArray(R.array.MealType)[2]);
-        mealList.add(meal);
 
-        meal = createMeal(2, "Pizza", 3.5f, getResources().getStringArray(R.array.MealType)[1]);
-        mealList.add(meal);
+    public static WeekDataStorage getWeekDataStorage() {
 
-        meal = createMeal(3, "Bulgursalat", 2.0f, getResources().getStringArray(R.array.MealType)[0]);
-        mealList.add(meal);
 
-        return mealList;
+        return WeekDataStorage;
+    }
+
+
+    private List<MealPlan> getDefaultWeeks() {
+
+        List<MealPlan> defaultWeeks = new ArrayList<>();
+
+
+        for (int i = 0; i < 8; i++) {
+
+            MealPlan mealPlan = new MealPlan(i);
+            defaultWeeks.add(mealPlan);
+
+        }
+
+        return defaultWeeks;
 
     }
 
@@ -64,4 +81,6 @@ public class WebMoApplication extends Application {
 
         return meal;
     }
+
+
 }

@@ -8,14 +8,15 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
 
-public class DataStorage {
+public class MealDataStorage {
 
-String fileName = "MealsOnDisc";
+    private String fileName = "MealsOnDiscV3";
 
 
-    public  void saveToDisc (Context context, List<Meal> objectsToSave) {
+    public void saveToDisc(Context context, List<Meal> objectsToSave) {
         try {
             FileOutputStream fileOutputStream = context.openFileOutput(fileName, Context.MODE_PRIVATE);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
@@ -30,8 +31,8 @@ String fileName = "MealsOnDisc";
 
     }
 
-    public  List<Meal> readFromDisc(Context context) {
-       List<Meal> objectsToReturn = null;
+    public List<Meal> readFromDisc(Context context) {
+        List<Meal> objectsToReturn = null;
 
         try {
             FileInputStream fileInputStream = context.openFileInput(fileName);

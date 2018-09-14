@@ -6,11 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 
-import android.graphics.Color;
 import android.view.View;
 import android.widget.Button;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -46,7 +46,7 @@ public class ShowMeal extends AppCompatActivity {
         // mealTableView.setHeaderBackgroundColor(Color.parseColor("#2ecc71"));
 
 
-        mealList = WebMoApplication.getDataStorage().readFromDisc(this);
+        mealList = WebMoApplication.getMealManager().getAllMeals();
 
 
         // Create table view adapter
@@ -117,22 +117,20 @@ public class ShowMeal extends AppCompatActivity {
 
                 if (data.getExtras().getString("status").equals("deleted")) {
 
-
+/*
                     for (Iterator<Meal> iter = mealList.listIterator(); iter.hasNext(); ) {
                         Meal foundMeal = iter.next();
                         if (foundMeal.getMealId() == id) {
 
                             iter.remove();
                             break;
-                        }
-
-                    }
-
-                    WebMoApplication.getDataStorage().saveToDisc(this, mealList);
+                        }*/
 
 
+                    WebMoApplication.getMealManager().removeMeal(id);
 
-                } else
+
+                } else {
 
                     for (int z = 0; z < mealList.size(); z++) {
                         Meal foundMeal = mealList.get(z);
@@ -142,14 +140,18 @@ public class ShowMeal extends AppCompatActivity {
                             foundMeal.setPrice(price);
                             foundMeal.setMealType(type);
 
-                            WebMoApplication.getDataStorage().saveToDisc(this, mealList);
+                            WebMoApplication.getMealManager().editMeal(foundMeal);
 
                         }
                     }
 
 
+                }
             }
         }
+
+        mealList = WebMoApplication.getMealManager().getAllMeals();
+
         mealTableDataAdapter.notifyDataSetChanged();
 
     }
@@ -162,9 +164,9 @@ public class ShowMeal extends AppCompatActivity {
         meal.setPrice(price);
         meal.setMealType(mealType);
 
-        mealList.add(meal);
+        //   mealList.add(meal);
 
-        WebMoApplication.getDataStorage().saveToDisc(this, mealList);
+        WebMoApplication.getMealManager().addMeal(meal);
     }
 
     public void newMeal() {

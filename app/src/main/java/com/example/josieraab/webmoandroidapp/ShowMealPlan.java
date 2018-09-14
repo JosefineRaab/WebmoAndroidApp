@@ -39,15 +39,12 @@ public class ShowMealPlan extends AppCompatActivity {
     }
 
 
-
     public void ShowMeal(View view) {
 
-        Intent intent = new Intent(ShowMealPlan.this,ShowMeal.class);
+        Intent intent = new Intent(ShowMealPlan.this, ShowMeal.class);
         intent.putExtra("Geklickt_auf", "");
         startActivity(intent);
     }
-
-
 
 
 }
