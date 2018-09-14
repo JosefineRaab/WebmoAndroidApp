@@ -3,10 +3,8 @@ package com.example.josieraab.webmoandroidapp;
 import android.content.Context;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 
 public class MealManager {
@@ -18,7 +16,7 @@ public class MealManager {
     public MealManager(Context context) {
 
         this.context = context;
-        List<Meal> loadedMeals = WebMoApplication.getMealDataStorage().readFromDisc(context);
+        List<Meal> loadedMeals = WebMoApplication.getMealMealDataStorage().readFromDisc(context);
         if (loadedMeals == null) {
             mealList = getDefaultMeals();
 
@@ -67,13 +65,13 @@ public class MealManager {
             }
         }
 
-        WebMoApplication.getMealDataStorage().saveToDisc(context, mealList);
+        WebMoApplication.getMealMealDataStorage().saveToDisc(context, mealList);
 
     }
 
     public void addMeal(Meal meal) {
         mealList.add(meal);
-        WebMoApplication.getMealDataStorage().saveToDisc(context, mealList);
+        WebMoApplication.getMealMealDataStorage().saveToDisc(context, mealList);
 
     }
 
@@ -92,7 +90,7 @@ public class MealManager {
         if (index != -1)
         {
             mealList.set(index, meal);
-            WebMoApplication.getMealDataStorage().saveToDisc(context, mealList);
+            WebMoApplication.getMealMealDataStorage().saveToDisc(context, mealList);
         }
     }
 

@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 
-public class DataStorage {
+public class MealDataStorage {
 
     private String fileName = "MealsOnDiscV3";
 

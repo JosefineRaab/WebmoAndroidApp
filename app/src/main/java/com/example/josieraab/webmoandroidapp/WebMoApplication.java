@@ -7,32 +7,33 @@ import java.util.List;
 
 public class WebMoApplication extends Application {
 
-    private static DataStorage MealDataStorage;
-    private static DataStorage WeekDataStorage;
+
     private static MealManager MealManager;
+    private static MealDataStorage MealDataStorage;
+    private static WeekDataStorage WeekDataStorage;
 
 
     @Override
     public void onCreate() {
 
         super.onCreate();
-        final DataStorage MealDataStorage = getMealDataStorage();
+
+        MealDataStorage = new MealDataStorage();
+        WeekDataStorage = new WeekDataStorage();
 
 
-        final DataStorage WeekDataStorage = getMealDataStorage();
         MealManager = new MealManager(this);
+
 
 /*
 
-        List<Meal> loadedWeek = WeekDataStorage.readFromDisc(this);
+        List<Meal> loadedWeek = weekMealDataStorage.readFromDisc(this);
         if (loadedWeek == null) {
-            WeekDataStorage.saveToDisc(this, getDefaultWeeks());
+            weekMealDataStorage.saveToDisc(this, getDefaultWeeks());
 */
 
 
-
-
-        }
+    }
 
 
     public static MealManager getMealManager() {
@@ -41,25 +42,17 @@ public class WebMoApplication extends Application {
     }
 
 
-    public static DataStorage getMealDataStorage() {
+    public static MealDataStorage getMealDataStorage() {
 
-        if (MealDataStorage == null) {
-
-            MealDataStorage = new DataStorage();
-        }
         return MealDataStorage;
     }
 
 
-    public static DataStorage getWeekDataStorage() {
+    public static WeekDataStorage getWeekDataStorage() {
 
-        if (WeekDataStorage == null) {
 
-            WeekDataStorage = new DataStorage();
-        }
         return WeekDataStorage;
     }
-
 
 
     private List<MealPlan> getDefaultWeeks() {
@@ -89,70 +82,5 @@ public class WebMoApplication extends Application {
         return meal;
     }
 
-    private List<Integer> createMealsPerWeek(int weekNumber) {
-        List<Integer> mealsPerWeek = new ArrayList<>();
-        switch (weekNumber) {
-            case 1: // Id
-                mealsPerWeek.add(5);
-                mealsPerWeek.add(4);
-                mealsPerWeek.add(7);
-                mealsPerWeek.add(9);
-                mealsPerWeek.add(2);
-                break;
-            case 2: //
-                mealsPerWeek.add(3);
-                mealsPerWeek.add(8);
-                mealsPerWeek.add(1);
-                mealsPerWeek.add(5);
-                mealsPerWeek.add(4);
-                break;
-            case 3: //
-                mealsPerWeek.add(3);
-                mealsPerWeek.add(6);
-                mealsPerWeek.add(9);
-                mealsPerWeek.add(4);
-                mealsPerWeek.add(1);
-                break;
-            case 4: //
-                mealsPerWeek.add(6);
-                mealsPerWeek.add(7);
-                mealsPerWeek.add(8);
-                mealsPerWeek.add(9);
-                mealsPerWeek.add(1);
-                break;
 
-            case 5: //
-                mealsPerWeek.add(1);
-                mealsPerWeek.add(2);
-                mealsPerWeek.add(3);
-                mealsPerWeek.add(4);
-                mealsPerWeek.add(5);
-                break;
-            case 6: //
-                mealsPerWeek.add(6);
-                mealsPerWeek.add(7);
-                mealsPerWeek.add(8);
-                mealsPerWeek.add(9);
-                mealsPerWeek.add(5);
-                break;
-
-            case 7: //
-                mealsPerWeek.add(5);
-                mealsPerWeek.add(4);
-                mealsPerWeek.add(1);
-                mealsPerWeek.add(9);
-                mealsPerWeek.add(3);
-                break;
-
-            case 8: //
-                mealsPerWeek.add(3);
-                mealsPerWeek.add(4);
-                mealsPerWeek.add(6);
-                mealsPerWeek.add(2);
-                mealsPerWeek.add(8);
-                break;
-        }
-
-        return mealsPerWeek;
-    }
 }
