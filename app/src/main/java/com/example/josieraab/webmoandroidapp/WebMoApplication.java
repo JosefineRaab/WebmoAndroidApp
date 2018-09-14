@@ -9,6 +9,8 @@ public class WebMoApplication extends Application {
 
 
     private static MealManager MealManager;
+    private static WeekManager WeekManager;
+
     private static MealDataStorage MealDataStorage;
     private static WeekDataStorage WeekDataStorage;
 
@@ -23,6 +25,7 @@ public class WebMoApplication extends Application {
 
 
         MealManager = new MealManager(this);
+        WeekManager = new WeekManager(this);
 
 
 /*
@@ -39,6 +42,11 @@ public class WebMoApplication extends Application {
     public static MealManager getMealManager() {
 
         return MealManager;
+    }
+
+    public static WeekManager getWeekManager() {
+
+        return WeekManager;
     }
 
 

@@ -66,6 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/week"
+                android:layout_marginLeft="16dp"
 
 
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -99,7 +100,7 @@
                 android:layout_marginLeft="16dp"
                 android:clickable="true"
                 android:onClick="ShowMeal"
-                android:text="@string/meal1_name"
+                android:text=""
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -123,7 +124,7 @@
                 android:layout_marginLeft="16dp"
                 android:clickable="true"
                 android:onClick="ShowMeal"
-                android:text="@string/meal2_name"
+                android:text=""
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </TableRow>
@@ -146,7 +147,7 @@
                 android:layout_marginLeft="16dp"
                 android:clickable="true"
                 android:onClick="ShowMeal"
-                android:text="@string/meal3_name"
+                android:text=""
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </TableRow>
@@ -212,9 +213,9 @@
                 android:id="@+id/next_week_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
                 android:text="@string/next_week" />
         </TableRow>
+
 
         <TableRow>
 
@@ -224,7 +225,21 @@
                 android:layout_height="wrap_content"
                 android:text="@string/new_week" />
 
+            <Button
+                android:id="@+id/Delete_Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete week"
+                 />
+
+            <Button
+                android:id="@+id/edit_week_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Edit" />
+
         </TableRow>
+
     </TableLayout>
 
 

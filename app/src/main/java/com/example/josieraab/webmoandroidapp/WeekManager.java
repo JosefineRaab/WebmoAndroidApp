@@ -60,7 +60,7 @@ public class WeekManager {
 
     }
 
-    public void ediWeek(MealPlan mealplan) {
+    public void editWeek(MealPlan mealplan) {
 
         int index = -1;
         for (MealPlan m : mealPlanList) {
@@ -72,7 +72,7 @@ public class WeekManager {
 
         if (index != -1) {
             mealPlanList.set(index, mealplan);
-            //       WebMoApplication.getMealMealDataStorage().saveToDisc(context, mealList);
+            WebMoApplication.getWeekDataStorage().saveToDisc(context, mealPlanList);
         }
     }
 
@@ -82,7 +82,7 @@ public class WeekManager {
 
         Random rand = new Random();
 
-            for (int i=0; i<9 ; i++){
+            for (int i=0; i<10 ; i++){
 
                 MealPlan mealPlan = new MealPlan(i);
 
@@ -95,11 +95,17 @@ public class WeekManager {
                 mealIds.add(rand.nextInt(9));
 
 
-                mealPlan.setMealsPerWeek(mealIds);
+                mealPlan.setMealIdsForWeek(mealIds);
+
+                mealsPerWeek.add(mealPlan);
 
             }
 
             return mealsPerWeek;
 
+    }
+
+    public int getTotalNumberofWeeks (){
+        return mealPlanList.size()-1;
     }
 }

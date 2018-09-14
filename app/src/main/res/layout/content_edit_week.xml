@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".EditWeek"
+    tools:showIn="@layout/activity_edit_week">
+
+
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="100dp"
+            android:gravity="top">
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/MealPlan_Headline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/Edit"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/MealPlan_Monday1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/Monday"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:id="@+id/MealPlan_Monday_Meal1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                 />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/MealPlan_Tuesday1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/Tuesday"
+             />
+
+                <Spinner
+                    android:id="@+id/MealPlan_Tuesday_Meal1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                   />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/MealPlan_Wednesday1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/Wednesday" />
+
+                <Spinner
+                    android:id="@+id/MealPlan_Wednesday_Meal1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/MealPlan_Thursday1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/Thursday"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:id="@+id/MealPlan_Thursday_Meal1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                     />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/MealPlan_Friday1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="@string/Friday"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:id="@+id/MealPlan_Friday_Meal1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                  />
+
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/save_week_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Save" />
+
+
+            </TableRow>
+
+
+        </TableLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>

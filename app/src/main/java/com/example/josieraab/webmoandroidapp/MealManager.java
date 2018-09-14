@@ -1,6 +1,7 @@
 package com.example.josieraab.webmoandroidapp;
 
 import android.content.Context;
+import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -16,7 +17,7 @@ public class MealManager {
     public MealManager(Context context) {
 
         this.context = context;
-        List<Meal> loadedMeals = WebMoApplication.getMealMealDataStorage().readFromDisc(context);
+        List<Meal> loadedMeals = WebMoApplication.getMealDataStorage().readFromDisc(context);
         if (loadedMeals == null) {
             mealList = getDefaultMeals();
 
@@ -30,10 +31,21 @@ public class MealManager {
     public Meal getMeal(int id) {
 
         Meal meal = null;
-        for (Meal m : mealList)
-        {
-            if (m.getMealId() == id)
-            {
+        for (Meal m : mealList) {
+            if (m.getMealId() == id) {
+                meal = m;
+                break;
+            }
+        }
+        return meal;
+    }
+
+
+    public Meal getMeal(String name) {
+
+        Meal meal = null;
+        for (Meal m : mealList) {
+            if (m.getName().equals(name)) {
                 meal = m;
                 break;
             }
@@ -43,10 +55,8 @@ public class MealManager {
 
     public Boolean Mealexists(int id) {
 
-        for (Meal m : mealList)
-        {
-            if (m.getMealId() == id)
-            {
+        for (Meal m : mealList) {
+            if (m.getMealId() == id) {
                 return true;
             }
         }
@@ -65,32 +75,29 @@ public class MealManager {
             }
         }
 
-        WebMoApplication.getMealMealDataStorage().saveToDisc(context, mealList);
+        WebMoApplication.getMealDataStorage().saveToDisc(context, mealList);
 
     }
 
     public void addMeal(Meal meal) {
         mealList.add(meal);
-        WebMoApplication.getMealMealDataStorage().saveToDisc(context, mealList);
+        WebMoApplication.getMealDataStorage().saveToDisc(context, mealList);
 
     }
 
     public void editMeal(Meal meal) {
 
         int index = -1;
-        for (Meal m : mealList)
-        {
-            if (m.getMealId() == meal.getMealId())
-            {
+        for (Meal m : mealList) {
+            if (m.getMealId() == meal.getMealId()) {
                 index = mealList.indexOf(m);
                 break;
             }
         }
 
-        if (index != -1)
-        {
+        if (index != -1) {
             mealList.set(index, meal);
-            WebMoApplication.getMealMealDataStorage().saveToDisc(context, mealList);
+            WebMoApplication.getMealDataStorage().saveToDisc(context, mealList);
         }
     }
 
@@ -143,8 +150,23 @@ public class MealManager {
 
     }
 
-    public List<Meal> getAllMeals()
-    {
+    public List<Meal> getAllMeals() {
         return mealList;
     }
+
+
+    public List<String> getMealNames(){
+
+     List<String> MealNames = new ArrayList<String>();
+
+     for (Meal meal : mealList) {
+         MealNames.add(meal.getName());
+
+     }
+
+        return  MealNames;
+
+}
+
+
 }

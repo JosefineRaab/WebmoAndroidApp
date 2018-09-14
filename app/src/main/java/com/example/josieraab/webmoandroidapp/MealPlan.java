@@ -1,16 +1,14 @@
 package com.example.josieraab.webmoandroidapp;
 
-import android.view.View;
-
-import java.util.HashSet;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
-public class MealPlan {
+public class MealPlan implements Serializable {
 
 
     private int weekNumber;
-    private List<Integer> mealsPerWeek;
+    private List<Integer> mealIdsForWeek;
 
 
     public MealPlan(int weekNumber) {
@@ -22,24 +20,24 @@ public class MealPlan {
     }
 
     public List<Integer> getMealsPerWeek(int weekNumber) {
-        return mealsPerWeek;
+        return mealIdsForWeek;
     }
 
-    public void setMealsPerWeek(List<Integer> MealsPerWeek) {
-        mealsPerWeek = MealsPerWeek;
+    public void setMealIdsForWeek(List<Integer> MealsPerWeek) {
+        mealIdsForWeek = MealsPerWeek;
     }
 
-/*    public Meal getMeal(int mealId){
-       Meal foundMeal = null;
+    public List<Meal> getListOfMeals (){
+        List<Meal> meals = new ArrayList<>();
 
-       for (Meal meal : mealsPerWeek) {
-           if (meal.getMealId() == (mealId)){
-               foundMeal = meal;
-               break;
-           }
-       }
-        return foundMeal;
-    }*/
+        for (int i = 0; i< mealIdsForWeek.size(); i++){
+            int id = mealIdsForWeek.get(i);
+
+            Meal meal = WebMoApplication.getMealManager().getMeal(id);
+            meals.add(meal);
+        }
+        return meals;
+    }
 
 
 }

@@ -11,7 +11,7 @@ import java.util.List;
 
 public class WeekDataStorage {
 
-        private String fileName = "WeeksOnDisk";
+        private String fileName = "WeeksOnDiskv2";
 
 
         public void saveToDisc(Context context, List<MealPlan> objectsToSave) {

@@ -40,8 +40,6 @@
     <string name="radiobtnlogin"> Admin Button noch im Aufbau </string>
 
 
-
-
     <!--ListMeal-->
 
     <string name="meal1_name">Spaghetti</string>
@@ -86,7 +84,7 @@
     <!-- Edit '-->
     <string name="Save">Save</string>
     <string name="Delete">Delete</string>
-
+    <string name="title_activity_edit_week">EditWeek</string>
 
 
 </resources>
