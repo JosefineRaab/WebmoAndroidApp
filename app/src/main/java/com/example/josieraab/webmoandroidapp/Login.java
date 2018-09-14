@@ -17,7 +17,7 @@ public class Login extends AppCompatActivity {
     private EditText usernamelogin;
     private EditText PasswordLogin;
     private Button action_login;
-    private Button Radio;
+
 
 
 
@@ -29,7 +29,7 @@ public class Login extends AppCompatActivity {
         usernamelogin = (EditText)findViewById(id.usernametxt);
         PasswordLogin = (EditText)findViewById(id.passwordtxt);
         action_login = (Button)findViewById(id.loginButton);
-        Radio = (Button) findViewById(R.id.radioButton);
+
 
 
         action_login.setOnClickListener(new View.OnClickListener() {
