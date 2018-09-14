@@ -13,7 +13,7 @@ import java.util.List;
 
 public class MealDataStorage {
 
-    private String fileName = "MealsOnDiscV3";
+    private String fileName = "MealsOnDiscV4";
 
 
     public void saveToDisc(Context context, List<Meal> objectsToSave) {

@@ -9,7 +9,7 @@
 
     <!-- login -->
 
-    <string name="logged_in_headline">You are logged in</string>
+    <string name="logged_in_headline">You are logged in as:</string>
     <string name="title_activity_show_meal">ShowMeal</string>
     <string name="title_activity_showMeal">Showmeal</string>
 

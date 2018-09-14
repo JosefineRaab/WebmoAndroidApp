@@ -17,7 +17,7 @@ public class Login extends AppCompatActivity {
     private EditText usernamelogin;
     private EditText PasswordLogin;
     private Button action_login;
-    private Button Radio;
+    public static Boolean isAdmin;
 
 
 
@@ -29,7 +29,6 @@ public class Login extends AppCompatActivity {
         usernamelogin = (EditText)findViewById(id.usernametxt);
         PasswordLogin = (EditText)findViewById(id.passwordtxt);
         action_login = (Button)findViewById(id.loginButton);
-        Radio = (Button) findViewById(R.id.radioButton);
 
 
         action_login.setOnClickListener(new View.OnClickListener() {
@@ -42,11 +41,13 @@ public class Login extends AppCompatActivity {
 
     private void validate(String userName, String userPassword){
         if((userName.equals("User")) && (userPassword.equals("1234"))){
+            isAdmin = false;
             Intent intent = new Intent(Login.this, Navigate.class);
             startActivity(intent);
 
         } if ((userName.equals("Admin"))&& (userPassword.equals("1234567") ))
         {
+            isAdmin= true;
             Intent intent = new Intent(Login.this, Navigate.class);
             startActivity(intent); }
 

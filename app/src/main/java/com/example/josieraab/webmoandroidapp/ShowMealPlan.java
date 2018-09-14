@@ -41,7 +41,10 @@ public class ShowMealPlan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_mealplan);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
+        mTextMessage = (TextView) findViewById(R.id.user_status);
+        if (Login.isAdmin == true){mTextMessage.setText("Admin");}
+        else {mTextMessage.setText("User");}
+
 
         ShowCurrentWeek = findViewById(R.id.show_week_number);
         Monday = findViewById(R.id.MealPlan_Monday_Meal);
