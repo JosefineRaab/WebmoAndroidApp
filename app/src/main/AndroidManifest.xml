@@ -12,10 +12,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Login"
-            android:label="Login"></activity>
-        <activity
-            android:name=".ShowMealPlan"
-            android:label="@string/title_activity_meal_plan">
+            android:label="Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,11 +20,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".ShowMealPlan"
+            android:label="@string/title_activity_meal_plan">
+
+        </activity>
+        <activity
             android:name=".ShowMeal"
             android:label="@string/title_activity_show_meal"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Navigate"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".EditMeal" />

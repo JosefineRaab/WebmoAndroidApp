@@ -42,12 +42,12 @@ public class Login extends AppCompatActivity {
 
     private void validate(String userName, String userPassword){
         if((userName.equals("User")) && (userPassword.equals("1234"))){
-            Intent intent = new Intent(Login.this, ShowMealPlan.class);
+            Intent intent = new Intent(Login.this, Navigate.class);
             startActivity(intent);
 
         } if ((userName.equals("Admin"))&& (userPassword.equals("1234567") ))
         {
-            Intent intent = new Intent(Login.this, ShowMeal.class);
+            Intent intent = new Intent(Login.this, Navigate.class);
             startActivity(intent); }
 
             else {Context context = getApplicationContext();

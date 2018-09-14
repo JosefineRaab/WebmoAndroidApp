@@ -14,7 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity
+public class Navigate extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
@@ -82,17 +82,17 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_mealplan ) {
-            Intent intent = new Intent(MainActivity.this,ShowMealPlan.class);
+            Intent intent = new Intent(Navigate.this,ShowMealPlan.class);
             startActivity(intent);
         } else if (id == R.id.nav_meal) {
-            Intent intent = new Intent(MainActivity.this,ShowMeal.class);
+            Intent intent = new Intent(Navigate.this,ShowMeal.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_manage) {
 
 
         } else if (id == R.id.nav_login) {
-            Intent intent = new Intent(MainActivity.this,Login.class);
+            Intent intent = new Intent(Navigate.this,Login.class);
             startActivity(intent);
 
         }
